@@ -91,40 +91,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-<details>
-<summary><strong>Repository Structure</strong></summary>
-<br />
-
-```text
-Shifa_studios/
-|-- index.html                  # Fully bundled self-contained production application
-|-- preview.gif                 # High-resolution animated demonstration preview
-|-- server.js                   # Lightweight zero-dependency HTTP development server
-|-- package.json                # Project scripts and metadata
-|-- site.webmanifest            # Progressive Web App (PWA) configuration
-|-- apple-touch-icon.png        # iOS home screen bookmark asset
-|-- og-share-image-1200x630.jpg # Social Open Graph metadata preview
-|-- css/
-|   `-- style.css               # Modular design system and responsive layout
-|-- js/
-|   `-- app.js                  # Physics field engine, canvas renderer, and interaction logic
-|-- audio/
-|   |-- intro.mp3               # Mastered cinematic voiceover and ambient intro score
-|   `-- loop.mp3                # Continuous atmospheric ambient score
-|-- img/
-|   `-- f/
-|       `-- mehak-portrait.webp # High-resolution designer portrait
-`-- scripts/
-    |-- build_intro_mix.py      # Audio engineering and studio voiceover mixer
-    |-- embed_audio.js          # Production audio bundler
-    |-- download_assets.js      # Offline asset downloader
-    `-- generate_preview_gif.py # Headless browser preview generator
-```
-
-</details>
-
----
-
 ## Inquiries and Collaboration
 
 For branding, packaging, creative direction, and digital design engagements:
