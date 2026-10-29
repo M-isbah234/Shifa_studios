@@ -52,9 +52,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 @keyframes marquee{to{transform:translateX(-50%)}}
 
 /* ---------- field ---------- */
-#field{position:fixed;inset:0;z-index:1;overflow:hidden;cursor:grab;touch-action:none}
-#field.dragging{cursor:grabbing}
-@media (pointer:fine){#field,#field button{cursor:none}}
+#field{position:fixed;inset:0;z-index:1;overflow:hidden;cursor:default;touch-action:none}
+#field.dragging{cursor:default}
+@media (pointer:fine){#field{cursor:default}#field button,.tile button{cursor:pointer}}
 .tile{position:absolute;left:0;top:0;will-change:transform;transition:opacity .5s ease,filter .5s ease}
 .tile .inner{width:100%;height:100%;opacity:0;transform:translateY(60px) scale(.82);transition:opacity .9s ease,transform 1.2s var(--ease);transition-delay:var(--d,0s)}
 body.ready .tile .inner{opacity:1;transform:none}
@@ -102,17 +102,12 @@ body.ready .tile .inner{opacity:1;transform:none}
 @keyframes wave{50%{transform:rotate(-7deg)}}
 @keyframes slide{0%{transform:translateX(-10%);opacity:0}18%,82%{transform:none;opacity:1}100%{transform:translateX(6%);opacity:0}}
 
-/* ---------- cursor ---------- */
-#cur{position:fixed;left:0;top:0;z-index:70;pointer-events:none;width:0;height:0;display:none}
-@media (pointer:fine){#cur{display:block}}
-#cur .dot{position:absolute;left:0;top:0;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;transition:width .35s var(--ease),height .35s var(--ease),margin .35s var(--ease),opacity .25s,background-color .8s}
-#cur .dot span{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:0;transition:opacity .2s}
-#cur[data-s="drag"] .dot{width:16px;height:16px;margin:-8px 0 0 -8px}
-#cur[data-s="drag"] .dot span{opacity:0}
-#cur[data-s="view"] .dot{width:92px;height:92px;margin:-46px 0 0 -46px}
-#cur[data-s="drag"] .dot span,#cur[data-s="view"] .dot span{opacity:1}
-#cur[data-s="grab"] .dot{width:40px;height:40px;margin:-20px 0 0 -20px}
-#cur.off .dot{opacity:0}
+/* ---------- cursor: standard native browser cursor ---------- */
+#cur{position:fixed;left:0;top:0;z-index:70;pointer-events:none;width:0;height:0;display:none!important}
+@media (pointer:fine){#cur{display:none!important}}
+#cur .dot{display:none!important}
+#cur[data-s="drag"] .dot,#cur[data-s="view"] .dot,#cur[data-s="grab"] .dot{display:none!important}
+.tile button{cursor:pointer!important}
 
 /* ---------- grain ---------- */
 #grain{position:fixed;inset:-50%;z-index:60;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");animation:grain 1s steps(6) infinite}
