@@ -851,7 +851,7 @@ const SND=(()=>{
   /* plain <audio> elements: they work from a local file, in every browser, and on iPhones with the silent switch on */
   let intro=null,loop=null,on=false,loopT=0,fadeT=0;
   const src=n=>(window.__AUD&&window.__AUD[n])||`audio/${n}.mp3`;
-  function mk(){if(intro)return;intro=new Audio();intro.preload="auto";intro.src=src("intro");intro.onerror=()=>{if(!intro.src.includes("mehak.studio"))intro.src="https://mehak.studio/audio/intro.mp3"};loop=new Audio();loop.preload="auto";loop.loop=true;loop.src=src("loop");loop.onerror=()=>{if(!loop.src.includes("mehak.studio"))loop.src="https://mehak.studio/audio/loop.mp3"};
+  function mk(){if(intro)return;intro=new Audio();intro.preload="auto";intro.src=src("intro");loop=new Audio();loop.preload="auto";loop.loop=true;loop.src=src("loop");
     try{if(navigator.audioSession)navigator.audioSession.type="playback"}catch(e){}}
   const tryPlay=a=>{try{const pr=a.play();if(pr&&pr.catch)pr.catch(()=>{})}catch(e){}};
   function fade(a,to,ms,done){clearInterval(a._f);const from=a.volume,t0=performance.now();a._f=setInterval(()=>{const k=Math.min(1,(performance.now()-t0)/ms);try{a.volume=from+(to-from)*k}catch(e){}if(k>=1){clearInterval(a._f);done&&done()}},40)}
