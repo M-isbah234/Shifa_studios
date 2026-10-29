@@ -1445,3 +1445,43 @@ body.filtering .tile.dim{opacity:.035!important}
   .art *{animation:none!important}
   #grain,#bgtype .track,.band .track,#aura i,.seal .orbit{animation:none!important}
 }
+
+.brand-name {
+  font-family: "Cormorant Garamond", "Instrument Serif", "Playfair Display", Georgia, serif!important;
+  font-size: 24px!important;
+  font-weight: 600!important;
+  letter-spacing: 0.01em!important;
+  color: var(--ink)!important;
+  line-height: 1!important;
+  display: inline-flex!important;
+  align-items: center!important;
+  justify-content: center!important;
+  white-space: nowrap!important;
+  user-select: none!important;
+  -webkit-user-select: none!important;
+  transition: color .8s ease!important;
+}
+#brand .brand-link {
+  height: 40px!important;
+  padding: 0 20px!important;
+  border-radius: 999px!important;
+  display: inline-flex!important;
+  align-items: center!important;
+  justify-content: center!important;
+  background: color-mix(in srgb, var(--paper) 86%, transparent)!important;
+  border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent)!important;
+  text-decoration: none!important;
+  transition: background-color .8s, border-color .8s, transform .35s var(--ease)!important;
+}
+#brand .brand-link:hover {
+  transform: scale(1.02)!important;
+}
+@media (max-width: 900px) {
+  #brand .brand-link {
+    height: 38px!important;
+    padding: 0 15px!important;
+  }
+  .brand-name {
+    font-size: 21px!important;
+  }
+}

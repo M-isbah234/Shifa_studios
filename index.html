@@ -22,7 +22,7 @@
 <noscript></noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500&display=swap" rel="stylesheet">
   <style>
 
 /* One full-color screen. The page takes on the palette of whichever project you point at.
@@ -1472,6 +1472,47 @@ body.filtering .tile.dim{opacity:.035!important}
   #grain,#bgtype .track,.band .track,#aura i,.seal .orbit{animation:none!important}
 }
 
+
+.brand-name {
+  font-family: "Cormorant Garamond", "Instrument Serif", "Playfair Display", Georgia, serif!important;
+  font-size: 24px!important;
+  font-weight: 600!important;
+  letter-spacing: 0.01em!important;
+  color: var(--ink)!important;
+  line-height: 1!important;
+  display: inline-flex!important;
+  align-items: center!important;
+  justify-content: center!important;
+  white-space: nowrap!important;
+  user-select: none!important;
+  -webkit-user-select: none!important;
+  transition: color .8s ease!important;
+}
+#brand .brand-link {
+  height: 40px!important;
+  padding: 0 20px!important;
+  border-radius: 999px!important;
+  display: inline-flex!important;
+  align-items: center!important;
+  justify-content: center!important;
+  background: color-mix(in srgb, var(--paper) 86%, transparent)!important;
+  border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent)!important;
+  text-decoration: none!important;
+  transition: background-color .8s, border-color .8s, transform .35s var(--ease)!important;
+}
+#brand .brand-link:hover {
+  transform: scale(1.02)!important;
+}
+@media (max-width: 900px) {
+  #brand .brand-link {
+    height: 38px!important;
+    padding: 0 15px!important;
+  }
+  .brand-name {
+    font-size: 21px!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1510,9 +1551,7 @@ body.filtering .tile.dim{opacity:.035!important}
 
 <header class="chrome chrome-in" id="brand">
   <a href="#work" class="brand-link" aria-label="Shifa Ashad, back to all categories">
-    <svg class="lg lg-horiz" viewBox="0 0 132 28" role="img" aria-label="Shifa Ashad">
-      <text x="0" y="21" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="25" font-weight="400" letter-spacing="-0.01em" fill="currentColor">Shifa Ashad</text>
-    </svg>
+    <span class="brand-name lg lg-horiz">Shifa Ashad</span>
   </a>
 </header>
 
