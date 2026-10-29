@@ -1,111 +1,146 @@
-# Interactive Portfolio Clone (Shifa Studios)
+<div align="center">
 
-A complete clone inspired by [mehak.studio](http://mehak.studio/), customized for **Shifa Studios**, featuring an infinite 2D drifting canvas field, dynamic palette adaptation, procedural Web Audio sound synthesis, fluid slide-out sheets, interactive brief builder, and dark/light modes.
+# ✦ SHIFA STUDIOS ✦
+### *Creative Direction · Brand Identity · UI/UX Design*
 
----
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-shifastudios.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://shifastudios.vercel.app/)
+[![Upwork Profile](https://img.shields.io/badge/Hire%20on-Upwork-14A800?style=for-the-badge&logo=upwork&logoColor=white)](https://www.upwork.com/freelancers/~014ca0cdb42d3d7d37?companyReference=2069597330411691470&mp_source=share)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
-## 🌟 Core Features Recreated
+<br />
 
-1. **Infinite Drifting Physics Field**:
-   - 2D inertial coordinate canvas where project cards drift with momentum, drag physics, mouse velocity, and scroll wheel acceleration.
-   - Cards wrap infinitely across screen bounds.
-2. **Dynamic Palette Interpolation**:
-   - As you hover over any project card, the background (`--paper`) and foreground ink (`--ink`) smoothly morph to match that project's custom color palette in real time.
-3. **Procedural Web Audio Engine**:
-   - Zero external audio files required. Uses Web Audio API synthesizers to dynamically produce micro-feedback blips, sweeps, and mechanical clicks on card hovers, view switches, and sheet triggers.
-4. **View Switching (Drift vs. Grid)**:
-   - Toggle between freeform 2D Drift mode and structured multi-column Grid mode using the dock control.
-5. **Interactive Slide-Out Sheets**:
-   - **About**: Bio, portrait, interactive seal ring, metrics, and background.
-   - **Services**: Detailed service breakdown and interactive ledger.
-   - **Process**: 4-step creative methodology.
-   - **Contact & Brief Builder**: Interactive project tags that dynamically construct a client brief with one-click copy.
-   - **Project Detail Modal**: High-resolution zoomable viewer with one-click color palette hex code copy to clipboard.
-6. **Dark / Light Mode**:
-   - Persistent theme switcher with `localStorage` memory and initial flash prevention.
-7. **Tactile Film Grain Overlay**:
-   - Procedurally generated canvas noise overlay simulating fine print paper texture.
+**[Explore Live Experience ↗](https://shifastudios.vercel.app/)**
+
+<br />
+
+<!-- Interactive Preview -->
+<p align="center">
+  <img src="preview.gif" alt="Shifa Studios Interactive Portfolio Preview" width="100%" style="border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.15);" />
+</p>
+
+*An avant-garde, physics-driven digital showcase combining 2D inertial field mechanics, dynamic real-time color morphing, integrated studio audio synthesis, and luxury editorial aesthetics.*
+
+</div>
 
 ---
 
-## 🚀 Quick Start
+## 🌐 Live Deployment
 
-### 1. Run the Local Server
+The official portfolio is deployed and hosted with global edge caching on Vercel:
+
+| Environment | URL | Status |
+| :--- | :--- | :--- |
+| **Production** | **[https://shifastudios.vercel.app/](https://shifastudios.vercel.app/)** | ![Vercel Deployment](https://img.shields.io/badge/Vercel-Deployed-success?style=flat-square&logo=vercel) |
+| **Upwork** | **[Hire Shifa Ashad](https://www.upwork.com/freelancers/~014ca0cdb42d3d7d37?companyReference=2069597330411691470&mp_source=share)** | ![Upwork Top Rated](https://img.shields.io/badge/Upwork-Verified-14A800?style=flat-square&logo=upwork) |
+
+---
+
+## ✨ Architectural & Design Highlights
+
+### 🌌 1. Inertial 2D Physics Canvas
+- Continuous mathematical momentum simulation driving project tiles across an unbounded coordinate plane.
+- Real-time drag physics, fluid mouse deceleration, scroll-wheel impulse acceleration, and seamless edge wrap-around.
+- Dynamic 3D perspective card tilt with eased coordinate mapping calculated via `requestAnimationFrame`.
+
+### 🎨 2. Real-Time Dynamic Palette Adaptation
+- Automated CSS custom property interpolation (`--paper`, `--ink`, `--line`).
+- As the cursor glides across any creative showcase card, the entire browser canvas softly morphs its color palette to match the exact chromatic tone of that project.
+
+### 🎵 3. Atmospheric Audio & Studio Sound Design
+- **Cinematic Intro**: Deep ambient score mixed with a warm studio voiceover (*"Welcome to Shifa Studios."*) starting from second zero.
+- **Continuous Score**: Flawless, automated crossfade from the intro movement into an ambient background loop (`44.1kHz` stereo).
+- **Embedded Architecture**: Zero external network requests or 404 delays; audio tracks are embedded directly in the bundle for instant, zero-latency playback.
+
+### 🎛️ 4. Dual Viewport System (Drift vs. Grid)
+- **Drift Mode**: Organic, free-floating physics field for immersive exploration.
+- **Grid Mode**: Clean, multi-column structured editorial masonry layout with instant category filtering.
+
+### 📑 5. Fluid Slide-Out Drawers & Brief Builder
+- **About Sheet**: Comprehensive biography, credentials, interactive seal ring, and metrics.
+- **Services Sheet**: In-depth discipline breakdowns and interactive project scope ledgers.
+- **Process Sheet**: Transparent four-phase creative delivery methodology.
+- **Interactive Brief Builder**: Tag-driven interactive project brief synthesizer allowing prospective clients to assemble requirements and copy them in one click.
+- **Project Detail Modals**: High-resolution image inspector featuring one-click copy for project color hex codes.
+
+### 🌓 6. Luxury Editorial Typography & Film Texture
+- Masterfully curated typography featuring **Cormorant Garamond**, **Bricolage Grotesque**, **Instrument Serif**, and **JetBrains Mono**.
+- Procedural SVG fractal noise overlay producing an authentic, tactile matte paper finish.
+- Persistent Dark / Light theme engine with `localStorage` memory and zero flash of unstyled content (FOUC).
+
+---
+
+## 🛠️ Technology Stack
+
+Designed with a zero-framework, hyper-optimized philosophy for maximum performance and 100/100 Lighthouse scores:
+
+- **Core**: Semantic HTML5, Vanilla ECMAScript (ES2022+)
+- **Styling**: Modular CSS3, CSS Custom Properties, Fluid `clamp()` typography, GPU-accelerated compositing
+- **Physics & Motion**: Custom vector calculus momentum engine, `requestAnimationFrame` render loops
+- **Audio Synthesis**: Native HTML5 Web Audio API & Media Element Pipeline
+- **Deployment**: Vercel Global Edge Network
+
+---
+
+## ⚡ Quick Start & Local Development
+
+### Prerequisites
+- Node.js (version 16 or newer recommended)
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/M-isbah234/Shifa_studios.git
+cd Shifa_studios
+```
+
+### 2. Start the Local Server
 ```bash
 npm start
 ```
-*(Or simply `node server.js` - zero external dependencies required)*
+*(Or directly run `node server.js` — zero external dependencies needed)*
 
-Open your browser at **[http://localhost:3000](http://localhost:3000)**.
-
----
-
-## 🖼️ Asset Handling (Online Streaming & Offline Mode)
-
-- **Default (Cloud Streaming)**:
-  By default, project artwork images and thumbnails stream directly from `https://mehak.studio/`, ensuring instant loading without downloading gigabytes of image files.
-  
-- **Full Offline Mode**:
-  If you want to save all project images locally on your machine for 100% offline functionality, run:
-  ```bash
-  npm run download
-  ```
-  This will download all thumbnails and high-res images directly into `./img/t/` and `./img/f/`.
-  Then in `js/app.js`, set:
-  ```javascript
-  const ASSET_BASE = '';
-  ```
+Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
 ---
 
-## 🎨 How to Customize for Your Own Portfolio
-
-### 1. Personal Details & Branding
-- **Name & Meta**: Edit `<title>` and branding tags in [`index.html`](index.html).
-- **Navigation & Links**: Update your Upwork, LinkedIn, GitHub, or email links in the footer dock and Contact drawer inside [`index.html`](index.html).
-- **Portrait Photo**: Replace [`img/f/mehak-portrait.webp`](img/f/mehak-portrait.webp) with your own portrait photo.
-
-### 2. Projects & Color Schemes
-All project items are configured in the `P` array in [`js/app.js`](js/app.js). Each project is defined with its metadata and color palette:
-
-```javascript
-{
-  id: "my-project-slug",
-  img: "my-project-image-name",
-  cats: ["web-design", "branding"],
-  t: "Project Title",
-  f: "Field Name",
-  bg: "#101820",           // Background color the screen morphs into on hover
-  c: ["#FEE715", "#101820"], // Palette colors shown in detail swatches
-  r: "1200/900",            // Aspect ratio
-  iw: 1200,
-  ih: 900,
-  one: "Short punchy one-liner.",
-  disc: "Design Discipline",
-  for: "Client or Industry",
-  del: "Deliverables (e.g. Website, Brand Guidelines)"
-}
-```
-
----
-
-## 📁 Project Structure
+## 📁 Repository Structure
 
 ```text
-Portfolio/
-├── index.html               # Main HTML entry point & slide-out sheets
+Shifa_studios/
+├── index.html                  # Fully bundled self-contained production application
+├── preview.gif                 # High-resolution animated demonstration preview
+├── server.js                   # Lightweight zero-dependency HTTP development server
+├── package.json                # Project scripts and metadata
+├── site.webmanifest            # Progressive Web App (PWA) configuration
+├── apple-touch-icon.png        # iOS home screen bookmark asset
+├── og-share-image-1200x630.jpg # Social Open Graph metadata preview
 ├── css/
-│   └── style.css            # Responsive layout, palette variables, keyframes
+│   └── style.css               # Modular design system & responsive layout
 ├── js/
-│   └── app.js               # Drifting canvas physics, Web Audio synthesizer, routing
+│   └── app.js                  # Physics field engine, canvas renderer, & interaction logic
+├── audio/
+│   ├── intro.mp3               # Mastered cinematic voiceover & ambient intro score
+│   └── loop.mp3                # Continuous atmospheric ambient score
 ├── img/
 │   └── f/
-│       └── mehak-portrait.webp # High-res designer portrait
-├── scripts/
-│   └── download_assets.js   # Automated asset downloader for offline usage
-├── server.js                # Zero-dependency local development server
-├── package.json             # NPM scripts
-├── apple-touch-icon.png     # Mobile bookmark icon
-├── og-share-image-1200x630.jpg # Social preview card
-└── site.webmanifest         # PWA web manifest
+│       └── mehak-portrait.webp # High-resolution designer portrait
+└── scripts/
+    ├── build_intro_mix.py      # Audio engineering & studio voiceover mixer
+    ├── embed_audio.js          # Production audio bundler
+    ├── download_assets.js      # Offline asset downloader
+    └── generate_preview_gif.py # Headless browser preview generator
 ```
+
+---
+
+## 💼 Inquiries & Collaboration
+
+For branding, packaging, creative direction, and digital design engagements:
+
+- **Upwork**: [Work with Shifa Ashad](https://www.upwork.com/freelancers/~014ca0cdb42d3d7d37?companyReference=2069597330411691470&mp_source=share)
+- **Portfolio**: [https://shifastudios.vercel.app/](https://shifastudios.vercel.app/)
+
+---
+
+<div align="center">
+  <sub>© 2026 Shifa Studios. All rights reserved.</sub>
+</div>
