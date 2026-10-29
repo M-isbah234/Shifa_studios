@@ -95,6 +95,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 For branding, packaging, creative direction, and digital design engagements:
 
+- Location: Sydney, Australia
 - Upwork: [Work with Shifa Ashad](https://www.upwork.com/freelancers/~014ca0cdb42d3d7d37?companyReference=2069597330411691470&mp_source=share)
 - Portfolio: [https://shifastudios.vercel.app/](https://shifastudios.vercel.app/)
 
