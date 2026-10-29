@@ -9,7 +9,7 @@
 <meta property="og:image" content="og-share-image-1200x630.jpg">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Shifa Ashad · Creative Designer</title>
-<script>try{if(localStorage.getItem("mf-theme")==="light")document.documentElement.classList.remove("dark")}catch(e){}</script>
+<script>try{if((localStorage.getItem("sa-theme")||localStorage.getItem("mf-theme"))==="light")document.documentElement.classList.remove("dark")}catch(e){}</script>
 <meta name="description" content="Shifa Ashad, brand and UI/UX designer on Upwork. Logos, brand identity, social media, landing pages, book covers, magazines, brochures, packaging, vehicle wraps and illustration. 181 projects across 26 categories.">
 <meta property="og:title" content="Shifa Ashad · Brand + UI/UX Designer">
 <meta property="og:description" content="Brands, websites, books and boxes that people stop for.">
@@ -59,7 +59,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 #intro.done .i-in{transform:translateY(-60px);opacity:0}
 #intro svg{width:96px;height:96px}
 #intro .ring{fill:none;stroke:#fff8ef;stroke-width:2;stroke-dasharray:1;stroke-dashoffset:1;animation:draw-in 1.3s var(--ease-io) forwards}
-#intro .mf{opacity:0;animation:fade-up .8s .5s var(--ease) forwards}
+#intro .sa,#intro .mf{opacity:0;animation:fade-up .8s .5s var(--ease) forwards}
 #intro .i-word{display:flex;gap:.25em;font-size:clamp(34px,6vw,64px);line-height:1;overflow:hidden;padding-bottom:.1em}
 #intro .i-word span{font-family:var(--f-display);font-weight:800;letter-spacing:-.03em;transform:translateY(110%);animation:rise-in 1s .25s var(--ease) forwards}
 #intro .i-word em{font-family:var(--f-serif);font-weight:400;transform:translateY(110%);animation:rise-in 1s .38s var(--ease) forwards}
@@ -804,7 +804,7 @@ h1.big{font-size:clamp(46px,7.6vw,104px)}
 #intro.done .i-in{transform:scale(.92);opacity:0;transition:transform 1s cubic-bezier(.83,0,.17,1),opacity .5s}
 #intro svg{width:86px;height:86px;opacity:0;animation:fade-up .8s .25s cubic-bezier(.16,1,.3,1) forwards}
 #intro .ring{animation:draw-in 1.6s .3s cubic-bezier(.77,0,.18,1) forwards}
-#intro .mf{animation:fade-up .9s .9s cubic-bezier(.16,1,.3,1) forwards}
+#intro .sa,#intro .mf{animation:fade-up .9s .9s cubic-bezier(.16,1,.3,1) forwards}
 #intro .i-name{display:flex;gap:.28em;align-items:baseline;font-size:clamp(46px,9vw,124px);line-height:1;color:#fff8ef}
 #intro .i-name em{display:inline-block;font-style:normal;opacity:0;filter:blur(14px);transform:translateY(22px) scale(1.08);animation:letter 1.1s calc(.95s + var(--c) * 55ms) cubic-bezier(.16,1,.3,1) forwards}
 #intro .i-first{font-weight:800;letter-spacing:-.045em}
@@ -1599,7 +1599,7 @@ body.filtering .tile.dim{opacity:.035!important}
         <p>My work moves between strategy and craft: brand systems and Shopify stores, campaign launches and picture books, dielines and design systems. The common thread is a simple test. Cover the logo, and you should still know whose work it is.</p>
         <p>I notice the fonts on restaurant menus. It's a condition. It's also why my clients' menus look better.</p>
       </div>
-      <div class="pwrap"><div class="portrait" id="portrait" aria-label="Shifa Ashad"></div><svg class="seal" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="58" fill="#14110d"/><path id="sealRing" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" fill="none"/><g class="orbit"><text font-family="Poppins, sans-serif" font-weight="600" font-size="7.8" letter-spacing="2.3" fill="#fff8ef"><textPath href="#sealRing">BRAND · PACKAGING · UI/UX · BOOKS · </textPath></text></g><svg class="lg lg-mono" x="31" y="31" width="58" height="58" color="#F5EFE6" viewBox="0 0 86.55 86.55" aria-hidden="true" fill="currentColor" fill-rule="evenodd"><path class="lp" style="--i:0" d="M43.828 61.421C42.644 61.433 38.056 61.495 36.795 61.487C35.534 61.479 36.403 61.453 36.260 61.372C36.117 61.291 35.991 61.119 35.935 61.001C35.880 60.882 35.896 60.795 35.926 60.662C35.957 60.530 35.938 60.440 36.118 60.206C36.298 59.973 36.812 59.499 37.007 59.263C37.202 59.028 37.197 59.014 37.287 58.794C37.377 58.573 37.484 58.238 37.548 57.942C37.611 57.645 37.667 58.543 37.667 57.015C37.668 55.486 37.603 51.076 37.552 48.771C37.500 46.467 37.399 45.438 37.357 43.188C37.315 40.938 37.324 36.690 37.299 35.271C37.273 33.852 37.261 34.811 37.202 34.673C37.144 34.535 37.033 34.519 36.949 34.443C36.848 34.517 36.803 34.421 36.645 34.664C36.488 34.908 36.240 35.350 36.004 35.901C35.769 36.453 35.446 37.472 35.232 37.973C35.018 38.473 35.026 38.257 34.721 38.904C34.415 39.551 33.728 41.185 33.399 41.854C33.069 42.523 33.012 42.413 32.745 42.918C32.479 43.423 32.037 44.319 31.799 44.884C31.560 45.448 31.548 45.722 31.316 46.305C31.084 46.889 30.989 47.213 30.405 48.383C29.820 49.553 28.512 51.842 27.807 53.324C27.103 54.807 26.578 56.370 26.176 57.278C25.773 58.185 25.668 58.292 25.393 58.770C25.118 59.248 24.733 59.855 24.528 60.146C24.322 60.438 24.283 60.439 24.159 60.520C24.036 60.601 23.919 60.635 23.786 60.632C23.653 60.630 23.483 60.583 23.362 60.504C23.241 60.425 23.190 60.402 23.061 60.159C22.931 59.916 22.786 59.459 22.584 59.046C22.382 58.633 22.166 58.368 21.847 57.681C21.528 56.994 21.299 56.199 20.672 54.923C20.045 53.647 18.750 51.398 18.083 50.025C17.417 48.652 17.193 47.760 16.673 46.682C16.154 45.605 15.607 44.887 14.965 43.558C14.323 42.229 13.423 39.994 12.821 38.708C12.218 37.421 11.655 36.398 11.349 35.840C11.042 35.282 11.087 35.443 10.980 35.359C10.873 35.275 10.797 35.345 10.706 35.337C10.656 35.510 10.594 35.007 10.556 35.857C10.518 36.707 10.486 38.841 10.477 40.438C10.469 42.035 10.532 43.368 10.507 45.438C10.482 47.507 10.342 50.980 10.329 52.855C10.316 54.730 10.392 55.872 10.430 56.688C10.468 57.504 10.493 57.442 10.559 57.751C10.624 58.059 10.712 58.309 10.824 58.538C10.936 58.767 10.990 58.873 11.230 59.125C11.470 59.377 12.055 59.830 12.265 60.051C12.474 60.273 12.442 60.322 12.487 60.456C12.531 60.590 12.566 60.720 12.530 60.856C12.495 60.991 12.425 61.172 12.275 61.271C12.125 61.369 12.597 61.410 11.628 61.446C10.659 61.483 7.401 61.493 6.462 61.489C5.523 61.485 6.122 61.461 5.995 61.421C5.869 61.382 5.781 61.357 5.701 61.251C5.621 61.145 5.519 60.951 5.517 60.785C5.515 60.619 5.608 60.402 5.686 60.254C5.765 60.107 5.761 60.099 5.987 59.901C6.213 59.703 6.763 59.352 7.042 59.066C7.322 58.780 7.523 58.457 7.666 58.183C7.809 57.909 7.820 57.785 7.898 57.424C7.975 57.062 8.056 56.596 8.132 56.015C8.209 55.434 8.309 55.340 8.357 53.938C8.405 52.536 8.367 49.966 8.421 47.605C8.475 45.243 8.640 42.230 8.683 39.771C8.726 37.313 8.707 34.301 8.680 32.855C8.653 31.408 8.595 31.526 8.520 31.094C8.444 30.661 8.347 30.513 8.228 30.258C8.109 30.002 8.206 29.977 7.804 29.560C7.402 29.144 6.164 28.115 5.815 27.760C5.466 27.406 5.705 27.538 5.709 27.434C5.713 27.331 5.758 27.222 5.838 27.140C5.918 27.058 6.042 26.986 6.188 26.942C6.334 26.899 5.837 26.875 6.714 26.878C7.590 26.881 10.516 26.902 11.447 26.960C12.378 27.017 12.009 27.055 12.301 27.224C12.594 27.392 12.847 27.450 13.203 27.972C13.560 28.494 13.861 29.101 14.441 30.355C15.021 31.609 16.028 34.128 16.684 35.495C17.339 36.862 17.685 37.126 18.374 38.557C19.062 39.987 20.137 42.681 20.813 44.076C21.489 45.471 21.736 45.547 22.432 46.926C23.129 48.305 24.504 51.360 24.992 52.350C25.480 53.340 25.236 52.751 25.360 52.865C25.483 52.980 25.637 53.024 25.735 53.036C25.832 53.049 25.878 52.994 25.944 52.939C26.009 52.883 26.001 52.919 26.128 52.703C26.255 52.486 26.531 52.017 26.707 51.642C26.882 51.267 26.994 50.822 27.180 50.454C27.366 50.086 27.656 49.756 27.822 49.436C27.989 49.115 28.026 48.858 28.179 48.531C28.332 48.203 28.578 47.842 28.740 47.472C28.902 47.102 28.927 46.855 29.151 46.311C29.375 45.767 29.831 44.718 30.084 44.208C30.337 43.699 30.495 43.613 30.670 43.255C30.846 42.898 30.969 42.405 31.139 42.061C31.310 41.718 31.526 41.515 31.695 41.196C31.863 40.877 31.980 40.484 32.150 40.147C32.319 39.809 32.544 39.584 32.712 39.170C32.880 38.756 32.997 38.100 33.160 37.661C33.323 37.222 33.530 36.932 33.690 36.536C33.851 36.141 33.948 35.667 34.124 35.288C34.299 34.909 34.565 34.601 34.743 34.260C34.920 33.919 35.001 33.584 35.187 33.242C35.373 32.901 35.523 32.938 35.859 32.211C36.194 31.484 36.896 29.578 37.200 28.881C37.503 28.185 37.464 28.298 37.680 28.031C37.895 27.763 38.193 27.451 38.491 27.275C38.788 27.098 38.567 27.049 39.465 26.972C40.362 26.894 43.040 26.825 43.876 26.809C44.712 26.793 44.310 26.833 44.480 26.875C44.649 26.916 44.798 26.970 44.892 27.057C44.987 27.145 45.046 27.282 45.049 27.400C45.052 27.519 45.101 27.585 44.909 27.768C44.717 27.951 44.253 28.160 43.895 28.497C43.538 28.834 42.998 29.442 42.766 29.789C42.534 30.136 42.563 30.263 42.504 30.579C42.445 30.895 42.418 29.336 42.412 31.688C42.406 34.039 42.417 41.452 42.467 44.688C42.518 47.924 42.669 49.174 42.714 51.105C42.758 53.035 42.708 55.197 42.735 56.271C42.763 57.346 42.796 57.138 42.879 57.551C42.962 57.964 43.126 58.467 43.233 58.749C43.341 59.032 43.351 59.041 43.523 59.248C43.696 59.456 44.105 59.788 44.270 59.996C44.435 60.204 44.488 60.316 44.516 60.496C44.545 60.676 44.489 60.941 44.440 61.075C44.392 61.208 44.315 61.239 44.225 61.295C44.134 61.350 43.966 61.389 43.900 61.410C43.833 61.431 45.012 61.408 43.828 61.421Z"/><path class="lp" style="--i:1" d="M52.246 61.478C51.479 61.474 48.576 61.495 47.720 61.454C46.865 61.413 47.255 61.333 47.113 61.232C46.972 61.132 46.909 60.969 46.873 60.851C46.836 60.732 46.862 60.629 46.894 60.522C46.926 60.415 46.847 60.416 47.065 60.208C47.283 60.000 47.943 59.527 48.203 59.272C48.464 59.017 48.515 58.940 48.628 58.678C48.740 58.416 48.824 58.136 48.878 57.700C48.933 57.264 48.941 59.946 48.955 56.062C48.970 52.178 48.980 38.465 48.968 34.395C48.955 30.326 48.929 32.288 48.880 31.645C48.831 31.002 48.757 30.793 48.675 30.539C48.593 30.285 48.618 30.381 48.387 30.121C48.156 29.861 47.495 29.237 47.290 28.978C47.085 28.718 47.168 28.682 47.157 28.564C47.145 28.447 47.174 28.363 47.223 28.275C47.272 28.186 47.356 28.098 47.453 28.034C47.549 27.969 47.536 27.935 47.800 27.888C48.064 27.840 48.260 27.773 49.036 27.748C49.811 27.722 50.536 27.703 52.453 27.735C54.369 27.767 58.619 27.946 60.536 27.939C62.453 27.932 62.831 27.729 63.953 27.694C65.074 27.659 66.590 27.699 67.266 27.730C67.943 27.761 67.812 27.792 68.012 27.879C68.212 27.967 68.339 28.078 68.468 28.254C68.597 28.431 68.615 28.177 68.788 28.936C68.961 29.696 69.378 32.027 69.507 32.812C69.636 33.597 69.565 33.403 69.561 33.645C69.557 33.887 69.523 34.099 69.482 34.263C69.442 34.427 69.393 34.536 69.316 34.630C69.238 34.724 69.137 34.804 69.018 34.824C68.899 34.845 68.722 34.810 68.601 34.754C68.481 34.698 68.441 34.725 68.296 34.487C68.151 34.249 67.977 33.771 67.732 33.324C67.486 32.878 67.036 32.138 66.823 31.808C66.610 31.479 66.672 31.557 66.454 31.348C66.236 31.139 65.824 30.756 65.514 30.553C65.204 30.350 65.285 30.329 64.594 30.130C63.903 29.931 62.073 29.507 61.369 29.358C60.665 29.210 61.411 29.237 60.369 29.241C59.328 29.245 56.115 29.325 55.119 29.382C54.124 29.439 54.581 29.480 54.395 29.581C54.210 29.682 54.095 29.832 54.006 29.988C53.918 30.144 53.896 30.297 53.864 30.518C53.833 30.739 53.819 29.554 53.817 31.312C53.814 33.069 53.837 39.216 53.849 41.062C53.861 42.907 53.853 42.061 53.891 42.385C53.929 42.709 54.008 42.867 54.078 43.007C54.149 43.148 54.195 43.166 54.315 43.228C54.434 43.290 54.454 43.341 54.796 43.379C55.139 43.417 55.607 43.454 56.369 43.457C57.131 43.461 58.592 43.456 59.369 43.399C60.146 43.342 60.587 43.239 61.030 43.116C61.473 42.994 61.756 42.823 62.029 42.664C62.302 42.505 62.404 42.559 62.667 42.164C62.931 41.769 63.386 40.697 63.610 40.294C63.835 39.891 63.874 39.875 64.013 39.745C64.152 39.616 64.296 39.547 64.445 39.516C64.595 39.484 64.775 39.490 64.908 39.556C65.041 39.623 65.166 39.749 65.243 39.917C65.320 40.085 65.378 39.832 65.370 40.565C65.362 41.297 65.212 43.077 65.195 44.312C65.178 45.546 65.271 47.277 65.268 47.972C65.266 48.667 65.227 48.344 65.178 48.480C65.130 48.616 65.064 48.722 64.978 48.788C64.893 48.855 64.773 48.882 64.664 48.879C64.555 48.877 64.470 48.890 64.323 48.773C64.175 48.656 64.004 48.545 63.779 48.179C63.555 47.814 63.171 46.927 62.975 46.579C62.779 46.231 62.804 46.257 62.604 46.090C62.405 45.922 62.118 45.731 61.778 45.576C61.438 45.422 61.009 45.268 60.566 45.165C60.123 45.062 59.833 44.996 59.119 44.957C58.406 44.917 57.008 44.922 56.286 44.928C55.564 44.934 55.148 44.937 54.789 44.993C54.429 45.050 54.273 45.163 54.128 45.268C53.984 45.373 53.968 45.462 53.922 45.623C53.875 45.783 53.857 44.325 53.848 46.231C53.839 48.138 53.831 55.089 53.868 57.062C53.905 59.035 53.975 57.757 54.068 58.069C54.161 58.382 54.305 58.702 54.427 58.936C54.549 59.171 54.589 59.254 54.800 59.475C55.012 59.697 55.519 60.056 55.695 60.265C55.870 60.473 55.865 60.580 55.855 60.728C55.845 60.876 55.757 61.043 55.635 61.152C55.512 61.261 55.671 61.328 55.119 61.382C54.568 61.436 52.804 61.460 52.325 61.476C51.847 61.492 53.014 61.481 52.246 61.478Z"/><path class="ls" d="M75.188 25.058C75.188 29.836 76.309 30.957 81.087 30.957C76.309 30.957 75.188 32.078 75.188 36.857C75.188 32.078 74.067 30.957 69.288 30.957C74.067 30.957 75.188 29.836 75.188 25.058Z"/></svg></svg></div>
+      <div class="pwrap"><div class="portrait" id="portrait" aria-label="Shifa Ashad"></div><svg class="seal" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="58" fill="#14110d"/><path id="sealRing" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" fill="none"/><g class="orbit"><text font-family="Poppins, sans-serif" font-weight="600" font-size="6.4" letter-spacing="1.6" fill="#fff8ef"><textPath href="#sealRing">UI/UX · LOGO &amp; BRAND IDENTITY · WEB DESIGN · </textPath></text></g><g class="sa-monogram"><text x="58" y="69" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="600" font-size="33" letter-spacing="0.5" fill="#fff8ef">SA<tspan font-size="13" font-family="'Cormorant Garamond', serif" dy="-13" dx="1">✦</tspan></text></g></svg></div>
     </div>
     <h2 class="sec">Three things I won't skip</h2>
     <div class="principles">
@@ -1945,7 +1945,7 @@ const auraEl=document.getElementById("aura");let curPaper="";
 const wash=document.getElementById("wash");
 /* recolor = one style change + a compositor-only crossfade of the old color on top */
 /* dark mode keeps every hue but sinks the paper into near-black and lifts the ink */
-let DARK=true;try{DARK=localStorage.getItem("mf-theme")!=="light"}catch(e){}
+let DARK=true;try{DARK=(localStorage.getItem("sa-theme")||localStorage.getItem("mf-theme"))!=="light"}catch(e){}
 function mixHex(h1,h2,t){const a=parseInt(h1.slice(1),16),b=parseInt(h2.slice(1),16);const c=(s)=>Math.round(((a>>s)&255)*(1-t)+((b>>s)&255)*t);return "#"+((1<<24)|(c(16)<<16)|(c(8)<<8)|c(0)).toString(16).slice(1)}
 function pal(hex){const p=DARK?[mixHex(hex,"#0b0a09",.66),mixHex(hex,"#fff8ef",.86)]:[hex,inkFor(hex)];p.push(mixHex(p[1],p[0],.36),mixHex(p[1],p[0],.8));return p}
 function applyPal(el,p){el.style.setProperty("--paper",p[0]);el.style.setProperty("--ink",p[1]);el.style.setProperty("--soft",p[2]);el.style.setProperty("--line",p[3])}
@@ -2222,7 +2222,7 @@ const fwrap=document.getElementById("filters");
 const ind=document.createElement("span");ind.className="ind";ind.setAttribute("aria-hidden","true");fwrap.append(ind);
 const hint=document.getElementById("hint"),emptyEl=document.getElementById("empty");
 let activeFilter="All",activeSub=null;
-try{const s=localStorage.getItem("mf-filter");if(s&&FILTERS.includes(s))activeFilter=s}catch(e){}
+try{const s=localStorage.getItem("sa-filter")||localStorage.getItem("mf-filter");if(s&&FILTERS.includes(s))activeFilter=s}catch(e){}
 const CHEV=`<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 6.5 5 3.5 8 6.5"/></svg>`;
 FILTERS.forEach(f=>{
   const g=document.createElement("div");g.className="fgroup";g.dataset.f=f;
@@ -2267,7 +2267,7 @@ document.addEventListener("click",e=>{if(!e.target.closest(".fgroup"))closeMenus
 addEventListener("keydown",e=>{if(e.key==="Escape")closeMenus()});
 function moveInd(){const b=fwrap.querySelector('.fgroup.active');if(!b)return;const r=b.getBoundingClientRect(),pr=fwrap.getBoundingClientRect();ind.style.width=r.width+"px";ind.style.height=r.height+"px";ind.style.transform=`translate(${r.left-pr.left}px,${r.top-pr.top}px)`}
 function applyFilter(f,user){
-  activeFilter=f;activeSub=null;try{localStorage.setItem("mf-filter",f)}catch(e){}
+  activeFilter=f;activeSub=null;try{localStorage.setItem("sa-filter",f)}catch(e){}
   fwrap.querySelectorAll(".fgroup").forEach(g=>{g.classList.toggle("active",g.dataset.f===f);g.querySelector(".fbtn").setAttribute("aria-pressed",g.dataset.f===f?"true":"false")});
   moveInd();markMenus();updateTiles();
   if(user&&!sheetOpen()){pendingBg=null;theme(f==="All"?K[hot].bg:CAT_COLOR[f])}
@@ -2539,7 +2539,7 @@ viewBtn.setAttribute("aria-pressed",GLOBE?"true":"false");document.getElementByI
 /* ---------- dark mode toggle ---------- */
 const modeBtn=document.getElementById("modeBtn");
 function setMode(d,anim){DARK=d;root.classList.toggle("dark",d);modeBtn.setAttribute("aria-checked",d?"true":"false");document.getElementById("modeTip").textContent=d?"Light mode":"Dark mode";
-  try{localStorage.setItem("mf-theme",d?"dark":"light")}catch(e){}
+  try{localStorage.setItem("sa-theme",d?"dark":"light")}catch(e){}
   theme(curPaper||K[hot].bg,true);
   document.querySelectorAll(".sheet.open").forEach(s=>applyPal(s,pal(curPaper)));
 }
@@ -2563,9 +2563,9 @@ const SND=(()=>{
   function fade(a,to,ms,done){clearInterval(a._f);const from=a.volume,t0=performance.now();a._f=setInterval(()=>{const k=Math.min(1,(performance.now()-t0)/ms);try{a.volume=from+(to-from)*k}catch(e){}if(k>=1){clearInterval(a._f);done&&done()}},40)}
   function startLoop(ms){if(!on)return;loop.volume=0;tryPlay(loop);fade(loop,1,ms)}
   function ui(){const b=document.getElementById("sndBtn");if(!b)return;b.setAttribute("aria-pressed",on?"true":"false");const l=on?"Mute music":"Play music";b.setAttribute("aria-label",l);document.getElementById("sndTip").textContent=l}
-  function save(){try{localStorage.setItem("mf-sound",on?"on":"off")}catch(e){}}
+  function save(){try{localStorage.setItem("sa-sound",on?"on":"off")}catch(e){}}
   return{
-    pref(){try{return localStorage.getItem("mf-sound")!=="off"}catch(e){return true}},
+    pref(){try{const s=localStorage.getItem("sa-sound")||localStorage.getItem("mf-sound");return s!=="off"}catch(e){return true}},
     warm(){mk();try{intro.load();loop.load()}catch(e){}},
     /* runs inside the tap: the intro (music + voice) starts at once, the loop is unlocked in the same gesture */
     intro(){mk();on=true;ui();save();intro.currentTime=0;intro.volume=1;tryPlay(intro);
@@ -2597,13 +2597,13 @@ else{
      and one tap starts the picture and the score together, so they stay in sync */
   introOn=true;SND.warm();
   let done=false,started=false;
-  const finish=skip=>{if(done)return;done=true;introOn=false;if(skip)SND.skipIntro();intro.classList.add("done");setTimeout(ready,120);setTimeout(()=>intro.remove(),1500);try{sessionStorage.setItem("mf-intro","1")}catch(err){}};
+  const finish=skip=>{if(done)return;done=true;introOn=false;if(skip)SND.skipIntro();intro.classList.add("done");setTimeout(ready,120);setTimeout(()=>intro.remove(),1500);try{sessionStorage.setItem("sa-intro","1")}catch(err){}};
   document.getElementById("iSkip").addEventListener("click",()=>finish(true));
   const play=withSound=>{if(started)return;started=true;if(withSound)SND.intro();
     requestAnimationFrame(()=>{intro.classList.add("play");setTimeout(()=>finish(false),4200);
       let q=tiles.slice();const warmNext=()=>{const part=q.splice(0,4);part.forEach(t=>{const im=t.btn.querySelector("img");if(im&&im.decode)im.decode().catch(()=>{})});if(q.length)setTimeout(warmNext,220)};setTimeout(warmNext,900)})};
   document.getElementById("opEnter").addEventListener("click",()=>play(true));
-  document.getElementById("opQuiet").addEventListener("click",()=>{try{localStorage.setItem("mf-sound","off")}catch(e){}play(false)});
+  document.getElementById("opQuiet").addEventListener("click",()=>{try{localStorage.setItem("sa-sound","off")}catch(e){}play(false)});
   const arm=()=>{
     /* montage: eight covers from different categories, decoded before the tap so every cut is instant */
     const reel=document.getElementById("opReel");const picks=[];const seen=new Set();for(const t of tiles){const im=t.btn.querySelector("img");if(im&&!seen.has(im.src)){seen.add(im.src);picks.push(im.src)}if(picks.length>=8)break}
@@ -2613,7 +2613,7 @@ else{
     requestAnimationFrame(()=>requestAnimationFrame(()=>intro.classList.add("armed")))};
   const fr=document.fonts&&document.fonts.ready;if(fr){Promise.race([fr,new Promise(r=>setTimeout(r,900))]).then(arm)}else arm();
 }
-function sessionStorageGet(){try{return sessionStorage.getItem("mf-intro")==="1"}catch(e){return false}}
+function sessionStorageGet(){try{return (sessionStorage.getItem("sa-intro")||sessionStorage.getItem("mf-intro"))==="1"}catch(e){return false}}
 })();
 
 </script>
