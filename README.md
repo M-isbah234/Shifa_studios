@@ -91,7 +91,9 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## Repository Structure
+<details>
+<summary><strong>Repository Structure</strong></summary>
+<br />
 
 ```text
 Shifa_studios/
@@ -118,6 +120,8 @@ Shifa_studios/
     |-- download_assets.js      # Offline asset downloader
     `-- generate_preview_gif.py # Headless browser preview generator
 ```
+
+</details>
 
 ---
 
