@@ -81,10 +81,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 #field{position:fixed;inset:0;z-index:1;overflow:hidden;cursor:default;touch-action:none}
 #field.dragging{cursor:default}
 @media (pointer:fine){#field{cursor:default}#field button,.tile button{cursor:pointer}}
-.tile{position:absolute;left:0;top:0;will-change:transform;transition:opacity .5s ease,filter .5s ease}
+.tile{position:absolute;left:0;top:0;will-change:transform;transition:opacity .5s ease,filter .5s ease;touch-action:none;-webkit-touch-callout:none;user-select:none;-webkit-user-select:none}
 .tile .inner{width:100%;height:100%;opacity:0;transform:translateY(60px) scale(.82);transition:opacity .9s ease,transform 1.2s var(--ease);transition-delay:var(--d,0s)}
 body.ready .tile .inner{opacity:1;transform:none}
-.tile button{display:block;width:100%;height:100%;border-radius:5px;overflow:hidden;box-shadow:0 30px 60px -26px rgba(20,17,13,.6),0 2px 6px rgba(20,17,13,.12);transition:transform .5s var(--ease),box-shadow .5s var(--ease);transform-style:preserve-3d}
+.tile button{display:block;width:100%;height:100%;border-radius:5px;overflow:hidden;box-shadow:0 30px 60px -26px rgba(20,17,13,.6),0 2px 6px rgba(20,17,13,.12);transition:transform .5s var(--ease),box-shadow .5s var(--ease);transform-style:preserve-3d;touch-action:none;-webkit-touch-callout:none}
 .tile button:hover{box-shadow:0 46px 80px -30px rgba(20,17,13,.7),0 2px 8px rgba(20,17,13,.14)}
 .tile svg{display:block;width:100%;height:100%}
 .tile .cap{position:absolute;left:0;top:calc(100% + 10px);white-space:nowrap;opacity:0;transform:translateY(-4px);transition:opacity .3s,transform .3s;color:var(--ink)}
@@ -2103,7 +2103,7 @@ function setGrid(){const winW=window.innerWidth;gridMode=(winW>0&&GRIDQ.matches)
 GRIDQ.addEventListener?GRIDQ.addEventListener("change",()=>{setGrid();layout();render(1)}):0;
 /* ---------- globe view ---------- */
 let GLOBE=false;/* every visit opens in the scatter view */
-var introOn=false;let gP=GLOBE?1:0;let fB=0,VN=0,footTop=0,gridT=null,gB=GLOBE?1:0,rotX=-.22,rotY=0,vrx=0,vry=0,gHover=false;
+var introOn=false;let gP=GLOBE?1:0;let fB=0,VN=0,footTop=0,gridT=null,gB=GLOBE?1:0,rotX=-.22,rotY=0,vrx=0,vry=0,spinDir=1,gHover=false;
 function sphere(k,N){if(N<7){const th=k/N*Math.PI*2;return [Math.cos(th),0,Math.sin(th)]}const y=1-(k+.5)*2/N,r=Math.sqrt(1-y*y),th=k*2.399963;return [Math.cos(th)*r,y,Math.sin(th)*r]}
 function spin(p,rx,ry){const cy=Math.cos(ry),sy=Math.sin(ry),cx=Math.cos(rx),sx=Math.sin(rx);const x1=p[0]*cy+p[2]*sy,z1=-p[0]*sy+p[2]*cy;return [x1,p[1]*cx-z1*sx,p[1]*sx+z1*cx]}
 /* the filtered cards settle into a tidy, slightly tilted layout centered between header and bottom bar */
@@ -2145,8 +2145,9 @@ function render(dt){
   if(isNaN(rotY))rotY=0;
   if(isNaN(vrx))vrx=0;
   if(isNaN(vry))vry=0;
-  if(gB>0&&!dragging){rotY+=((gHover||reduce)?0:.0024)*dt+vry*dt;rotX+=vrx*dt;const f=Math.pow(.93,dt);vry*=f;vrx*=f;rotX+=(-.22-rotX)*.01*dt;rotX=Math.max(-1,Math.min(1,rotX))}
-  const mobG=W<760,gTop=mobG?150:96,gBot=(footTop>200?footTop:H-140)-12;
+  const mobG=W<760;
+  if(gB>0&&!dragging){const baseSpin=(gHover||reduce)?0:spinDir*.0022;rotY+=baseSpin*dt+vry*dt;rotX+=vrx*dt;const f=Math.pow(mobG?.955:.94,dt);vry*=f;vrx*=f;if(Math.abs(vry)<0.0001)vry=0;if(Math.abs(vrx)<0.0001)vrx=0;if(rotX>0.55)rotX+=(0.55-rotX)*.05*dt;else if(rotX<-0.55)rotX+=(-0.55-rotX)*.05*dt;rotX=Math.max(-0.8,Math.min(0.8,rotX))}
+  const gTop=mobG?150:96,gBot=(footTop>200?footTop:H-140)-12;
   const R=Math.max(80,Math.min(W*(mobG?.36:.3),(gBot-gTop)*(mobG?.3:.36)));
   const RX=Math.max(80,Math.min(W*(mobG?.37:.36),R*(mobG?1.25:1.75)));
   const rRatio=R>0?RX/R:1;
@@ -2162,6 +2163,7 @@ function render(dt){
     let X=x,Y=y,S=1;const h=t.size*t.rr+60;
     if(gB>0){
       const on=!t.el.classList.contains("dim");const q=spin(on?sphere(t.vi,VN):sphere(n,tiles.length),rotX,rotY),z=q[2],ps=.34+.78*Math.pow((z+1)/2,1.6);
+      t.gz=z;
       const Rv=on&&VN<=5?R*.62:R,gx=gcx+q[0]*Rv*rRatio-t.size/2,gy=gcy+q[1]*Rv-h/2,gs=gw/(t.size||200)*ps;
       X=x+(gx-x)*gB;Y=y+(gy-y)*gB;S=1+(gs-1)*gB;
       const op=on?(Math.round((1-(1-(.16+.84*Math.pow((z+1)/2,1.15)))*gB)*40)/40).toFixed(3):(Math.round((1-gB)*40)/40).toFixed(3);if(t._o!==op){t._o=op;t.el.style.opacity=op}
@@ -2170,7 +2172,7 @@ function render(dt){
     }else if(fB>0&&gridT&&gridT.get(t)){
       const g=gridT.get(t);X=x+(g.x-x)*fB;Y=y+(g.y-y)*fB;S=1+(g.s-1)*fB;t._r=g.r*fB;
       const zi=t===held?99999:500+g.k;if(t._z!==zi){t._z=zi;t.el.style.zIndex=zi}t._g=1;
-    }else if(t._g){t._g=0;t._o=t._z=t._pe=undefined;if(t._gv){t._gv="";t.el.style.visibility=""}t.el.style.opacity="";t.btn.style.opacity="";t.el.style.zIndex=Math.round(t.depth*100);t.el.style.pointerEvents=""}
+    }else if(t._g){t._g=0;t.gz=undefined;t._o=t._z=t._pe=undefined;if(t._gv){t._gv="";t.el.style.visibility=""}t.el.style.opacity="";t.btn.style.opacity="";t.el.style.zIndex=Math.round(t.depth*100);t.el.style.pointerEvents=""}
     t.cx=X+t.size/2;t.cy=Y+h/2;
     /* cards fully off screen are hidden and skipped, so the browser only restyles what you can see */
     {const m=120,sz=t.size*S,hh=h*S,off=gB===0&&fB===0&&t!==held&&(X+t.size/2+sz/2<-m||X+t.size/2-sz/2>W+m||Y+h/2+hh/2<-m||Y+h/2-hh/2>H+m);
@@ -2184,7 +2186,12 @@ let lastFocus=0,pendingBg=null,pendT=0,themeT=0;/* touch recolors wait until a c
 function focusCenter(now){
   if(now-lastFocus<140||held)return;lastFocus=now;
   const fx=W/2,fy=H*.46;let best=-1,bd=1e12;
-  for(const t of tiles){if(t.el.classList.contains("dim"))continue;const dx=t.cx-fx,dy=t.cy-fy,dd=dx*dx+dy*dy*1.3;if(dd<bd){bd=dd;best=t.i}}
+  for(const t of tiles){
+    if(t.el.classList.contains("dim"))continue;
+    if(gB>.5&&t.gz!==undefined&&t.gz<.15)continue;
+    const dx=t.cx-fx,dy=t.cy-fy,dd=dx*dx+dy*dy*1.3;
+    if(dd<bd){bd=dd;best=t.i}
+  }
   /* while a category filter is on, its colour stays; the centred card only updates the name */
   if(best>=0&&best!==hot)setHot(best,activeFilter==="All");
 }
@@ -2223,7 +2230,15 @@ addEventListener("pointermove",e=>{
   const off=sheetOpen()||e.pointerType!=="mouse"||!!e.target.closest(".chrome");if(off!==curOff){curOff=off;cur.classList.toggle("off",off)}
   if(held){const dx=e.clientX-lx,dy=e.clientY-ly,edt=Math.max(1,e.timeStamp-lt)/16.667;held.ox+=dx;held.oy+=dy;held.vx=dx/edt;held.vy=dy/edt;moved+=Math.abs(dx)+Math.abs(dy);lx=e.clientX;ly=e.clientY;lt=e.timeStamp;return}
   if(!dragging)return;const dx=e.clientX-lx,dy=e.clientY-ly,edt=Math.max(1,e.timeStamp-lt)/16.667;
-  if(GLOBE){rotY+=dx*.0055;rotX-=dy*.0055;vry=dx/edt*.0055;vrx=-dy/edt*.0055;moved+=Math.abs(dx)+Math.abs(dy);lx=e.clientX;ly=e.clientY;lt=e.timeStamp;return}
+  if(GLOBE){
+    const mob=W<760,sens=mob?.0085:.0055;
+    rotY+=dx*sens;rotX-=dy*sens;
+    rotX=Math.max(-0.85,Math.min(0.85,rotX));
+    const instVry=dx/edt*sens,instVrx=-dy/edt*sens;
+    vry=vry*0.35+instVry*0.65;vrx=vrx*0.35+instVrx*0.65;
+    if(Math.abs(dx)>0.5)spinDir=dx<0?-1:1;
+    moved+=Math.abs(dx)+Math.abs(dy);lx=e.clientX;ly=e.clientY;lt=e.timeStamp;return;
+  }
   px+=dx;py+=dy;vx=dx/edt;vy=dy/edt;moved+=Math.abs(dx)+Math.abs(dy);lx=e.clientX;ly=e.clientY;lt=e.timeStamp;
 },{passive:true});
 function clearDragState(){clearTimeout(holdT);if(held){held.el.classList.remove("lifted");held=null}dragging=false;field.classList.remove("dragging");curState(document.querySelector(".tile button:hover")?"view":"drag");gHover=false;vx=0;vy=0;vrx=0;vry=0}
@@ -2231,9 +2246,12 @@ window.addEventListener("blur",clearDragState);
 addEventListener("pointercancel",clearDragState);
 addEventListener("pointerup",e=>{clearTimeout(holdT);
   if(held){const t=held;held=null;if(moved>6&&e.timeStamp-lt<90){t.fx=(t.vx||0)*.9;t.fy=(t.vy||0)*.9}t.el.classList.remove("lifted");field.classList.remove("dragging");curState(document.querySelector(".tile button:hover")?"view":"drag");return}
-  if(!dragging)return;dragging=false;if(e.timeStamp-lt>90){vx=vy=0;vrx=vry=0}field.classList.remove("dragging");curState(document.querySelector(".tile button:hover")?"view":"drag")});
+  if(!dragging)return;dragging=false;
+  if(e.timeStamp-lt>140){vx=vy=0;vrx=vry=0}
+  else if(GLOBE){vry=Math.max(-0.06,Math.min(0.06,vry));vrx=Math.max(-0.04,Math.min(0.04,vrx))}
+  field.classList.remove("dragging");curState(document.querySelector(".tile button:hover")?"view":"drag")});
 document.addEventListener("mouseleave",()=>{curOff=true;cur.classList.add("off");clearDragState()});
-field.addEventListener("wheel",e=>{if(gridMode)return;e.preventDefault();const m=e.deltaMode===1?16:e.deltaMode===2?innerHeight:1;if(GLOBE){vry-=(e.deltaY+e.deltaX)*m*.00012;return}pan=null;wy-=e.deltaY*m*.6;wx-=e.deltaX*m*.6},{passive:false});
+field.addEventListener("wheel",e=>{if(gridMode)return;e.preventDefault();const m=e.deltaMode===1?16:e.deltaMode===2?innerHeight:1;if(GLOBE){const dw=-(e.deltaY+e.deltaX)*m*.00012;vry+=dw;if(Math.abs(dw)>.0005)spinDir=dw<0?-1:1;return}pan=null;wy-=e.deltaY*m*.6;wx-=e.deltaX*m*.6},{passive:false});
 addEventListener("resize",()=>{setGrid();layout();if(!sheetOpen()&&!introOn)render(1);moveInd()});
 
 /* ---------- hot item ---------- */
@@ -2533,10 +2551,17 @@ addEventListener("resize",()=>{if(cs&&cSheet.classList.contains("open"))stageLay
 addEventListener("pointermove",e=>{if(!cs||!cs.mode)return;const dx=e.clientX-cs.lx,dy=e.clientY-cs.ly,edt=Math.max(1,e.timeStamp-cs.lt)/16.667;
   cs.moved+=Math.abs(dx)+Math.abs(dy);cs.lx=e.clientX;cs.ly=e.clientY;cs.lt=e.timeStamp;
   if(cs.mode==="card"){const it=cs.held;it.ox+=dx;it.oy+=dy;it.vx=dx/edt;it.vy=dy/edt;return}
-  if(GLOBE){cs.ry+=dx*.0065;cs.rx-=dy*.0065;cs.vry=dx/edt*.0065;cs.vrx=-dy/edt*.0065}else{cs.px+=dx;cs.py+=dy;cs.vx=dx/edt;cs.vy=dy/edt}},{passive:true});
-function stageUp(e){if(!cs||!cs.mode)return;const late=e&&e.timeStamp-cs.lt>90;
+  if(GLOBE){
+    const mob=(cs.w||W)<620,sens=mob?.009:.0065;
+    cs.ry+=dx*sens;cs.rx-=dy*sens;cs.rx=Math.max(-0.85,Math.min(0.85,cs.rx));
+    const instVry=dx/edt*sens,instVrx=-dy/edt*sens;
+    cs.vry=(cs.vry||0)*0.35+instVry*0.65;cs.vrx=(cs.vrx||0)*0.35+instVrx*0.65;
+    if(Math.abs(dx)>0.5)cs.spinDir=dx<0?-1:1;
+  }else{cs.px+=dx;cs.py+=dy;cs.vx=dx/edt;cs.vy=dy/edt}},{passive:true});
+function stageUp(e){if(!cs||!cs.mode)return;const late=e&&e.timeStamp-cs.lt>140;
   if(cs.mode==="card"){const it=cs.held;if(!late&&cs.moved>6){it.fx=(it.vx||0)*.9;it.fy=(it.vy||0)*.9}it.el.classList.remove("lifted");cs.held=null}
   else if(late){cs.vx=cs.vy=cs.vrx=cs.vry=0}
+  else if(GLOBE){cs.vry=Math.max(-0.06,Math.min(0.06,cs.vry||0));cs.vrx=Math.max(-0.04,Math.min(0.04,cs.vrx||0))}
   cs.mode=null;cs.st.classList.remove("grabbing")}
 addEventListener("pointerup",stageUp);addEventListener("pointercancel",stageUp);
 window.addEventListener("blur",stageUp);
@@ -2550,8 +2575,13 @@ function catGlobeFrame(dt){
   if(isNaN(cs.px))cs.px=0;if(isNaN(cs.py))cs.py=0;if(isNaN(cs.vx))cs.vx=0;if(isNaN(cs.vy))cs.vy=0;
   if(isNaN(cs.rx))cs.rx=-.18;if(isNaN(cs.ry))cs.ry=0;if(isNaN(cs.vrx))cs.vrx=0;if(isNaN(cs.vry))cs.vry=0;
   if(!dragging){
-    if(!reduce&&!cs.hov)cs.py-=.18*dt;cs.px+=cs.vx*dt;cs.py+=cs.vy*dt;const f=Math.pow(.93,dt);cs.vx*=f;cs.vy*=f;
-    cs.ry+=(reduce||cs.pick?0:cs.hov?.0012:.0032)*dt+cs.vry*dt;cs.rx+=cs.vrx*dt;cs.vry*=f;cs.vrx*=f;cs.rx+=(-.18-cs.rx)*.012*dt}
+    if(!reduce&&!cs.hov)cs.py-=.18*dt;cs.px+=cs.vx*dt;cs.py+=cs.vy*dt;const f=Math.pow(.94,dt);cs.vx*=f;cs.vy*=f;
+    const baseSpin=(reduce||cs.pick)?0:(cs.hov?.0012:.0028)*(cs.spinDir||1);
+    cs.ry+=baseSpin*dt+cs.vry*dt;cs.rx+=cs.vrx*dt;cs.vry*=f;cs.vrx*=f;
+    if(Math.abs(cs.vry)<0.0001)cs.vry=0;if(Math.abs(cs.vrx)<0.0001)cs.vrx=0;
+    if(cs.rx>0.55)cs.rx+=(0.55-cs.rx)*.05*dt;else if(cs.rx<-0.55)cs.rx+=(-0.55-cs.rx)*.05*dt;
+    cs.rx=Math.max(-0.8,Math.min(0.8,cs.rx));
+  }
   cs.rx=Math.max(-1,Math.min(1,cs.rx));
   const gb=cs.gb,w=cs.w||1,h=cs.h||1,R=Math.max(40,n<=5?cs.R*.7:cs.R);
   const pw=cs.PW||w,ph=cs.PH||h;
