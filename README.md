@@ -68,28 +68,7 @@ Designed with a zero-framework, hyper-optimized architecture for maximum perform
 - Audio Synthesis: Native HTML5 Web Audio API and Media Element Pipeline
 - Deployment: Vercel Global Edge Network
 
----
 
-## Quick Start and Local Development
-
-### Prerequisites
-- Node.js (version 16 or newer recommended)
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/M-isbah234/Shifa_studios.git
-cd Shifa_studios
-```
-
-### 2. Start the Local Server
-```bash
-npm start
-```
-(Or directly run `node server.js` - zero external dependencies needed)
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
----
 
 ## Inquiries and Collaboration
 
