@@ -49,7 +49,6 @@ Upwork: [https://www.upwork.com/freelancers/~014ca0cdb42d3d7d37?companyReference
 - Services Sheet: In-depth discipline breakdowns and interactive project scope ledgers.
 - Process Sheet: Transparent four-phase creative delivery methodology.
 - Interactive Brief Builder: Tag-driven project brief synthesizer allowing prospective clients to assemble requirements and copy them in one click.
-- Project Detail Modals: High-resolution image inspector featuring one-click copy for project color hex codes.
 
 ### 6. Luxury Editorial Typography and Film Texture
 - Curated typography featuring Cormorant Garamond, Bricolage Grotesque, Instrument Serif, and JetBrains Mono.
