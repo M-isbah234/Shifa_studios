@@ -53,7 +53,6 @@ Upwork: [https://www.upwork.com/freelancers/~014ca0cdb42d3d7d37?companyReference
 ### 6. Luxury Editorial Typography and Film Texture
 - Curated typography featuring Cormorant Garamond, Bricolage Grotesque, Instrument Serif, and JetBrains Mono.
 - Procedural SVG fractal noise overlay producing an authentic, tactile matte paper finish.
-- Persistent Dark and Light theme engine with localStorage memory and zero flash of unstyled content.
 
 ---
 
