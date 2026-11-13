@@ -43,6 +43,7 @@ Upwork: [https://www.upwork.com/freelancers/~014ca0cdb42d3d7d37?companyReference
 ### 4. Dual Viewport System (Drift vs. Grid)
 - Drift Mode: Organic, free-floating physics field for immersive exploration.
 - Grid Mode: Structured editorial masonry layout with instant category filtering.
+- Interactive Brief Builder: Tag-driven project brief synthesizer allowing prospective clients to assemble requirements and copy them in one click.
 
 ### 5. Fluid Slide-Out Drawers and Brief Builder
 - About Sheet: Comprehensive biography, credentials, interactive seal ring, and metrics.
