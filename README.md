@@ -39,6 +39,7 @@ Upwork: [https://www.upwork.com/freelancers/~014ca0cdb42d3d7d37?companyReference
 - Cinematic Intro: Deep ambient score mixed with a warm studio voiceover ("Welcome to Shifa Studios.") starting from second zero.
 - Continuous Score: Seamless automated crossfade from the intro movement into an ambient background loop (44.1kHz stereo).
 - Embedded Architecture: Zero external network requests or 404 delays; audio tracks are embedded directly in the bundle for instant, zero-latency playback.
+- User Interface: Provides a responsive, web-based frontend dashboard served via FastAPI to configure parameters (keywords, location, match threshold, max jobs) and monitor the automation in real-time.
 
 ### 4. Dual Viewport System (Drift vs. Grid)
 - Drift Mode: Organic, free-floating physics field for immersive exploration.
