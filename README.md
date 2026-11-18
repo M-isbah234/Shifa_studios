@@ -64,8 +64,8 @@ Designed with a zero-framework, hyper-optimized architecture for maximum perform
 - Core: Semantic HTML5, Vanilla ECMAScript (ES2022+)
 - Styling: Modular CSS3, CSS Custom Properties, Fluid clamp typography, GPU-accelerated compositing
 - Physics and Motion: Vector calculus momentum engine, requestAnimationFrame render loops
-- Audio Synthesis: Native HTML5 Web Audio API and Media Element Pipeline
-- Deployment: Vercel Global Edge Network
+- Audio Synthesis: Native HTML5 Web Audio API and Media Element Pipeline.
+- Deployment: Vercel Global Edge Network.
 
 
 
